@@ -1,0 +1,14 @@
+Adding a new user:
+analyst@94caf7cb696a:~$ sudo useradd researcher9
+Adding user to group:
+analyst@94caf7cb696a:~$ sudo usermod -g research_team researcher9
+Making the user the owner of a file:
+analyst@94caf7cb696a:~$ sudo chown researcher9 /home/researcher2/projects/project_r.txt
+Adding the user to a secondary group:
+analyst@94caf7cb696a:~$ sudo usermod -a -G sales_team researcher9
+Deleting the user:
+analyst@94caf7cb696a:~$ sudo userdel researcher9
+userdel: group researcher9 not removed because it is not the primary group of user researcher9.
+Clean up the user group:
+analyst@94caf7cb696a:~$ sudo groupdel researcher9
+
