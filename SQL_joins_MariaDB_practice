@@ -1,0 +1,33 @@
+Developed hands-on experience in performing various types of SQL joins and data retrieval operations in a MariaDB
+environment. Gained proficiency in joining tables, filtering data, and extracting information from multiple datasets.
+
+
+-- Query 1: Performing an inner join between the machines and employees tables based on the device_id.
+-- Achieved: Gained experience in combining data from two tables using an inner join operation.
+
+SELECT * 
+FROM machines 
+INNER JOIN employees ON machines.device_id = employees.device_id;
+
+
+-- Query 2: Performing a left join between the machines and employees tables based on the device_id.
+-- Achieved: Practiced left join to retrieve all records from the left table (machines) and matching records from the right table (employees).
+
+SELECT * 
+FROM machines 
+LEFT JOIN employees ON machines.device_id = employees.device_id;
+
+-- Query 3: Performing a right join between the machines and employees tables based on the device_id.
+-- Achieved: Explored right join to retrieve all records from the right table (employees) and matching records from the left table (machines).
+
+SELECT * 
+FROM machines 
+RIGHT JOIN employees ON machines.device_id = employees.device_id;
+
+
+-- Query 4: Performing an inner join between the employees and log_in_attempts tables based on the username.
+-- Achieved: Further practiced inner join to combine employee information with login attempts data.
+
+SELECT * 
+FROM employees 
+INNER JOIN log_in_attempts ON employees.username = log_in_attempts.username;
