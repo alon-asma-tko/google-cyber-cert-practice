@@ -1,0 +1,51 @@
+Developed proficiency in querying specific columns, filtering records based on various conditions such as dates, times, and logical operators, and 
+practiced combining multiple conditions for more complex filtering scenarios. Enhanced understanding of SQL querying techniques in a MariaDB environment.
+
+-- Query 1: Retrieving device IDs and operating systems from the machines table.
+SELECT device_id, operating_system FROM machines;
+
+-- Query 2: Filtering log-in attempts after a specific date.
+SELECT * 
+FROM log_in_attempts 
+WHERE login_date > '2022-05-09';
+
+-- Query 3: Retrieving log-in attempts on or after a specific date.
+SELECT * 
+FROM log_in_attempts 
+WHERE login_date >= '2022-05-09';
+
+-- Query 4: Filtering log-in attempts within a date range.
+SELECT * 
+FROM log_in_attempts 
+WHERE login_date BETWEEN '2022-05-09' AND '2022-05-11';
+
+-- Query 5: Filtering log-in attempts before a specific time.
+SELECT * FROM log_in_attempts WHERE login_time < '07:00:00';
+
+-- Query 6: Retrieving specific columns based on a condition.
+SELECT event_id, username, login_date FROM log_in_attempts WHERE event_id >= 100;
+
+-- Query 7: Retrieving records with event IDs within a specific range.
+SELECT event_id, username, login_date FROM log_in_attempts WHERE event_id BETWEEN 100 AND 150;
+
+-- Query 8: Filtering log-in attempts after a specific time and where success is false.
+SELECT * 
+FROM log_in_attempts
+WHERE login_time > '18:00:00' AND success = 0;
+
+-- Query 9: Retrieving log-in attempts on specific dates.
+SELECT * 
+FROM log_in_attempts 
+WHERE login_date = '2022-05-09' OR login_date = '2022-05-08';
+
+-- Query 10: Filtering log-in attempts where the country is not Mexico.
+SELECT * FROM log_in_attempts WHERE NOT country LIKE 'MEX%';
+
+-- Query 11: Retrieving employees in the Marketing department located in the East region.
+SELECT * FROM employees WHERE department = 'Marketing' AND office LIKE 'East%';
+
+-- Query 12: Retrieving employees in the Finance or Sales departments.
+SELECT * FROM employees WHERE department = 'Finance' OR department = 'Sales'; 
+
+-- Query 13: Retrieving employees not in the Information Technology department.
+SELECT * FROM employees WHERE NOT department = 'Information Technology';
