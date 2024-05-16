@@ -1,0 +1,33 @@
+In this fun scenario, I encountered encrypted data and followed clues to recover it. 
+After finding a hidden file named ".leftShift3" in the "caesar" subdirectory, I decrypted its 
+content using a Caesar cipher to reveal instructions for decrypting the main encrypted file. 
+Following these instructions, I used the OpenSSL command with the provided passphrase "ettubrute" to decrypt the file successfully. 
+Through this exercise, I practiced deciphering encrypted data and gained experience in using encryption and decryption tools.
+
+-- Command 1: Accessed the README.txt file to find instructions for recovering encrypted data.
+analyst@06c70eea7b8c:~$ cat README.txt
+Hello,
+All of your data has been encrypted. To recover your data, you will need to solve a cipher. To get started look for a hidden file in the caesar subdirectory.
+
+-- Command 2: Navigated to the "caesar" subdirectory to explore hidden files.
+analyst@06c70eea7b8c:~$ cd caesar
+
+-- Command 3: Accessed the hidden file ".leftShift3" to retrieve decryption instructions.
+analyst@06c70eea7b8c:~/caesar$ cat .leftShift3
+Lq rughu wr uhfryhu brxu ilohv brx zloo qhhg wr hqwhu wkh iroorzlqj frppdqg:
+
+rshqvvo dhv-256-fef -sengi2 -d -g -lq T1.hqfubswhg -rxw T1.uhfryhuhg -n hwwxeuxwh
+
+-- Command 4: Used the "tr" command to apply a Caesar cipher decryption to reveal instructions.
+analyst@06c70eea7b8c:~/caesar$ cat .leftShift3 | tr "d-za-cD-ZA-C" "a-zA-Z"
+In order to recover your files you will need to enter the following command:
+
+openssl aes-256-cbc -pbkdf2 -a -d -in Q1.encrypted -out Q1.recovered -k ettubrute
+
+-- Command 5: Decrypted the main encrypted file "Q1.encrypted" using the OpenSSL command with the provided passphrase.
+analyst@06c70eea7b8c:~/caesar$ cd ~
+analyst@06c70eea7b8c:~$ openssl aes-256-cbc -pbkdf2 -a -d -in Q1.encrypted -out Q1.recovered -k ettubrute
+
+-- Command 6: Verified the successful decryption by viewing the recovered file "Q1.recovered".
+analyst@06c70eea7b8c:~$ cat Q1.recovered
+If you are able to read this, then you have successfully decrypted the classic cipher text. You recovered the encryption key that was used to encrypt this file. Great work!
